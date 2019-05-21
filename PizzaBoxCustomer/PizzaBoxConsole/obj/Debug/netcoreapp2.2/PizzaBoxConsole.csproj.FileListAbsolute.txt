@@ -1,0 +1,16 @@
+D:\Revature\PizzaBox\PizzaBoxConsole\bin\Debug\netcoreapp2.2\PizzaBoxConsole.deps.json
+D:\Revature\PizzaBox\PizzaBoxConsole\bin\Debug\netcoreapp2.2\PizzaBoxConsole.runtimeconfig.json
+D:\Revature\PizzaBox\PizzaBoxConsole\bin\Debug\netcoreapp2.2\PizzaBoxConsole.runtimeconfig.dev.json
+D:\Revature\PizzaBox\PizzaBoxConsole\bin\Debug\netcoreapp2.2\PizzaBoxConsole.dll
+D:\Revature\PizzaBox\PizzaBoxConsole\bin\Debug\netcoreapp2.2\PizzaBoxConsole.pdb
+D:\Revature\PizzaBox\PizzaBoxConsole\obj\Debug\netcoreapp2.2\PizzaBoxConsole.csprojAssemblyReference.cache
+D:\Revature\PizzaBox\PizzaBoxConsole\obj\Debug\netcoreapp2.2\PizzaBoxConsole.csproj.CoreCompileInputs.cache
+D:\Revature\PizzaBox\PizzaBoxConsole\obj\Debug\netcoreapp2.2\PizzaBoxConsole.AssemblyInfoInputs.cache
+D:\Revature\PizzaBox\PizzaBoxConsole\obj\Debug\netcoreapp2.2\PizzaBoxConsole.AssemblyInfo.cs
+D:\Revature\PizzaBox\PizzaBoxConsole\obj\Debug\netcoreapp2.2\PizzaBoxConsole.dll
+D:\Revature\PizzaBox\PizzaBoxConsole\obj\Debug\netcoreapp2.2\PizzaBoxConsole.pdb
+D:\Revature\PizzaBox\PizzaBoxConsole\bin\Debug\netcoreapp2.2\PizzaBoxData.dll
+D:\Revature\PizzaBox\PizzaBoxConsole\bin\Debug\netcoreapp2.2\PizzaBoxData.pdb
+D:\Revature\PizzaBox\PizzaBoxConsole\obj\Debug\netcoreapp2.2\PizzaBoxConsole.csproj.CopyComplete
+D:\Revature\PizzaBox\PizzaBoxConsole\bin\Debug\netcoreapp2.2\PizzaBoxDomain.dll
+D:\Revature\PizzaBox\PizzaBoxConsole\bin\Debug\netcoreapp2.2\PizzaBoxDomain.pdb

@@ -1,0 +1,201 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Revature\\PizzaBox\\PizzaBoxTest\\PizzaBoxTest.csproj": {}
+  },
+  "projects": {
+    "D:\\Revature\\PizzaBox\\PizzaBoxData\\PizzaBoxData.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Revature\\PizzaBox\\PizzaBoxData\\PizzaBoxData.csproj",
+        "projectName": "PizzaBoxData",
+        "projectPath": "D:\\Revature\\PizzaBox\\PizzaBoxData\\PizzaBoxData.csproj",
+        "packagesPath": "C:\\Users\\seraa\\.nuget\\packages\\",
+        "outputPath": "D:\\Revature\\PizzaBox\\PizzaBoxData\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\seraa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "D:\\Revature\\PizzaBox\\PizzaBoxDomain\\PizzaBoxDomain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Revature\\PizzaBox\\PizzaBoxDomain\\PizzaBoxDomain.csproj",
+        "projectName": "PizzaBoxDomain",
+        "projectPath": "D:\\Revature\\PizzaBox\\PizzaBoxDomain\\PizzaBoxDomain.csproj",
+        "packagesPath": "C:\\Users\\seraa\\.nuget\\packages\\",
+        "outputPath": "D:\\Revature\\PizzaBox\\PizzaBoxDomain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\seraa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "D:\\Revature\\PizzaBox\\PizzaBoxData\\PizzaBoxData.csproj": {
+                "projectPath": "D:\\Revature\\PizzaBox\\PizzaBoxData\\PizzaBoxData.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "D:\\Revature\\PizzaBox\\PizzaBoxTest\\PizzaBoxTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Revature\\PizzaBox\\PizzaBoxTest\\PizzaBoxTest.csproj",
+        "projectName": "PizzaBoxTest",
+        "projectPath": "D:\\Revature\\PizzaBox\\PizzaBoxTest\\PizzaBoxTest.csproj",
+        "packagesPath": "C:\\Users\\seraa\\.nuget\\packages\\",
+        "outputPath": "D:\\Revature\\PizzaBox\\PizzaBoxTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\seraa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "D:\\Revature\\PizzaBox\\PizzaBoxData\\PizzaBoxData.csproj": {
+                "projectPath": "D:\\Revature\\PizzaBox\\PizzaBoxData\\PizzaBoxData.csproj"
+              },
+              "D:\\Revature\\PizzaBox\\PizzaBoxDomain\\PizzaBoxDomain.csproj": {
+                "projectPath": "D:\\Revature\\PizzaBox\\PizzaBoxDomain\\PizzaBoxDomain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[1.4.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.0.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}
