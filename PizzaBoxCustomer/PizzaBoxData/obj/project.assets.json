@@ -3620,11 +3620,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Revature\\PizzaBox\\PizzaBoxData\\PizzaBoxData.csproj",
+      "projectUniqueName": "D:\\Revature\\PizzaBox\\PizzaBoxCustomer\\PizzaBoxData\\PizzaBoxData.csproj",
       "projectName": "PizzaBoxData",
-      "projectPath": "D:\\Revature\\PizzaBox\\PizzaBoxData\\PizzaBoxData.csproj",
+      "projectPath": "D:\\Revature\\PizzaBox\\PizzaBoxCustomer\\PizzaBoxData\\PizzaBoxData.csproj",
       "packagesPath": "C:\\Users\\seraa\\.nuget\\packages\\",
-      "outputPath": "D:\\Revature\\PizzaBox\\PizzaBoxData\\obj\\",
+      "outputPath": "D:\\Revature\\PizzaBox\\PizzaBoxCustomer\\PizzaBoxData\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
