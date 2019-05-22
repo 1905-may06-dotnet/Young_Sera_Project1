@@ -570,6 +570,7 @@ namespace PizzaBoxConsole
                     Console.WriteLine("------------------------------------------------------------------");
                 }
                 userHistory = null;
+                crud.DisposeInstance();
                 WaitForInput();
             }
         }
