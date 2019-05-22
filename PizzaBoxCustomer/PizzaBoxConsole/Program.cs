@@ -495,14 +495,14 @@ namespace PizzaBoxConsole
             currOrder.OrderStatus = (int)OrderStatus.Sent;
             Order lastOrder = crud.GetMostRecentOrder(currUser);
 
-            if((lastOrder.OrderDate - currOrder.OrderDate) < TimeSpan.FromDays(1) && lastOrder.LocationId != currOrder.LocationId)
+            if((currOrder.OrderDate - lastOrder.OrderDate) < TimeSpan.FromDays(1) && lastOrder.LocationId != currOrder.LocationId)
             {
                 Console.WriteLine("You can't order from a location within 24 hours of ordering from a different location.");
                 WaitForInput();
                 return;
             }
 
-            if((lastOrder.OrderDate - currOrder.OrderDate) < TimeSpan.FromHours(2))
+            if((currOrder.OrderDate - lastOrder.OrderDate) < TimeSpan.FromHours(2))
             {
                 Console.WriteLine("It's been less than 2 hours since your last order. Please wait to order again.");
                 WaitForInput();
@@ -566,6 +566,7 @@ namespace PizzaBoxConsole
                     }
                     Console.WriteLine("------------------------------------------------------------------");
                 }
+                userHistory = null;
                 WaitForInput();
             }
         }
