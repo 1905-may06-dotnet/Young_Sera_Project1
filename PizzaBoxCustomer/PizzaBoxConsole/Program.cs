@@ -494,19 +494,21 @@ namespace PizzaBoxConsole
             PizzaLogic.SetOrderTime(currOrder);
             currOrder.OrderStatus = (int)OrderStatus.Sent;
             Order lastOrder = crud.GetMostRecentOrder(currUser);
-
-            if((currOrder.OrderDate - lastOrder.OrderDate) < TimeSpan.FromDays(1) && lastOrder.LocationId != currOrder.LocationId)
+            if (lastOrder != null)
             {
-                Console.WriteLine("You can't order from a location within 24 hours of ordering from a different location.");
-                WaitForInput();
-                return;
-            }
+                if ((currOrder.OrderDate - lastOrder.OrderDate) < TimeSpan.FromDays(1) && lastOrder.LocationId != currOrder.LocationId)
+                {
+                    Console.WriteLine("You can't order from a location within 24 hours of ordering from a different location.");
+                    WaitForInput();
+                    return;
+                }
 
-            if((currOrder.OrderDate - lastOrder.OrderDate) < TimeSpan.FromHours(2))
-            {
-                Console.WriteLine("It's been less than 2 hours since your last order. Please wait to order again.");
-                WaitForInput();
-                return;
+                if ((currOrder.OrderDate - lastOrder.OrderDate) < TimeSpan.FromHours(2))
+                {
+                    Console.WriteLine("It's been less than 2 hours since your last order. Please wait to order again.");
+                    WaitForInput();
+                    return;
+                }
             }
 
             if(currOrder.Cost > 5000m)
@@ -524,6 +526,7 @@ namespace PizzaBoxConsole
 
         static void OrderHistory()
         {
+            crud.DisposeInstance();
             Console.Clear();
             if(currUser == null)
             {

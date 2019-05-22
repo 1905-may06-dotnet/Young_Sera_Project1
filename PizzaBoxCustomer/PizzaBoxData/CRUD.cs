@@ -22,6 +22,11 @@ namespace PizzaBoxData
             return DBSingle.Instance.dbInstance.Location.ToList();
         }
 
+        public void DisposeInstance()
+        {
+            DBSingle.Instance.ResetInstance();
+        }
+
         public List<Order> GetUserOrderList(User u)
         {
             return DBSingle.Instance.dbInstance.Order.Where<Order>(o => o.Username == u.Username).ToList();

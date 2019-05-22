@@ -37,5 +37,11 @@ namespace PizzaBoxData
                 return instance;
             }
         }
+
+        public void ResetInstance()
+        {
+            dbinstance.Dispose();
+            instance = null;
+        }
     }
 }
