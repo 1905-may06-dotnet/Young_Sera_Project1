@@ -1,1 +1,0 @@
-Server=sera-server.database.windows.net; Database=PizzaBox; user id=redophiuchus; Password=Password1;
