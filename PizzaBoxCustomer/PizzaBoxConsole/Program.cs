@@ -329,7 +329,7 @@ namespace PizzaBoxConsole
                         Console.WriteLine("Please input a number.");
                         WaitForInput();
                     }
-                    if (choice >= topList.Count || choice < 0)
+                    else if (choice >= topList.Count || choice < 0)
                     {
                         Console.WriteLine("Please select a valid topping.");
                         WaitForInput();
