@@ -235,7 +235,7 @@ namespace PizzaBoxConsole
 
         static void AddPizza()
         {
-            if(currOrder.Pizza.Count >= 100)
+            if(PizzaLogic.IsAboveMaxPizzaCount(currOrder.Pizza.Count))
             {
                 Console.WriteLine("You have reached the limit on pizzas at 100 pizzas. Please order and try again in 2 hours.");
                 WaitForInput();
@@ -496,14 +496,14 @@ namespace PizzaBoxConsole
             Order lastOrder = crud.GetMostRecentOrder(currUser);
             if (lastOrder != null)
             {
-                if ((currOrder.OrderDate - lastOrder.OrderDate) < TimeSpan.FromDays(1) && lastOrder.LocationId != currOrder.LocationId)
+                if (PizzaLogic.WithinTimeSpan(lastOrder.OrderDate, currOrder.OrderDate, TimeSpan.FromDays(1)) && lastOrder.LocationId != currOrder.LocationId)
                 {
                     Console.WriteLine("You can't order from a location within 24 hours of ordering from a different location.");
                     WaitForInput();
                     return;
                 }
 
-                if ((currOrder.OrderDate - lastOrder.OrderDate) < TimeSpan.FromHours(2))
+                if (PizzaLogic.WithinTimeSpan(lastOrder.OrderDate, currOrder.OrderDate, TimeSpan.FromHours(2)))
                 {
                     Console.WriteLine("It's been less than 2 hours since your last order. Please wait to order again.");
                     WaitForInput();
@@ -511,7 +511,7 @@ namespace PizzaBoxConsole
                 }
             }
 
-            if(currOrder.Cost > 5000m)
+            if(PizzaLogic.IsAboveMaximumCost(currOrder.Cost))
             {
                 Console.WriteLine("Your order costs too much. Please remove pizzas until it is less than $5,000.");
                 WaitForInput();

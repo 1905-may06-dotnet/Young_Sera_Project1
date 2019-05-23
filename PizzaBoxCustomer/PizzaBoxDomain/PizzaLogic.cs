@@ -80,6 +80,21 @@ namespace PizzaBoxDomain
             return cost;
         }
 
+        public static bool WithinTimeSpan(DateTime oldDate, DateTime currDate, TimeSpan withinTime)
+        {
+            return (currDate - oldDate) < withinTime;
+        }
+
+        public static bool IsAboveMaximumCost(decimal cost)
+        {
+            return cost > 5000;
+        }
+
+        public static bool IsAboveMaxPizzaCount(int count)
+        {
+            return count > 100;
+        }
+
         public static void SetOrderTime(Order o)
         {
             o.OrderDate = DateTime.Now;
