@@ -3,30 +3,6 @@ using PizzaBoxData;
 
 namespace PizzaBoxDomain
 {
-    public enum PizzaCrust
-    {
-        Standard,
-        Handtossed,
-        Thin,
-        Cauliflower
-    }
-
-    public enum PizzaSize
-    {
-        Personal,
-        Medium,
-        Large
-    }
-
-    public enum OrderStatus
-    {
-        Sent,
-        Received,
-        Cooking,
-        Delivering,
-        Complete,
-        Canceled
-    }
     public static class PizzaLogic
     {
         public static decimal CalcPizzaCost(Pizza p)
