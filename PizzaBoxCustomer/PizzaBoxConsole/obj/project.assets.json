@@ -937,7 +937,8 @@
         "framework": ".NETCoreApp,Version=v2.2",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4",
+          "PizzaBoxDomain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/PizzaBoxData.dll": {}
@@ -949,9 +950,6 @@
       "PizzaBoxDomain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.2",
-        "dependencies": {
-          "PizzaBoxData": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/PizzaBoxDomain.dll": {}
         },

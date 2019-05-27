@@ -92,7 +92,11 @@
         },
         "frameworks": {
           "netcoreapp2.2": {
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Revature\\PizzaBox\\PizzaBoxCustomer\\PizzaBoxDomain\\PizzaBoxDomain.csproj": {
+                "projectPath": "D:\\Revature\\PizzaBox\\PizzaBoxCustomer\\PizzaBoxDomain\\PizzaBoxDomain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -158,11 +162,7 @@
         },
         "frameworks": {
           "netcoreapp2.2": {
-            "projectReferences": {
-              "D:\\Revature\\PizzaBox\\PizzaBoxCustomer\\PizzaBoxData\\PizzaBoxData.csproj": {
-                "projectPath": "D:\\Revature\\PizzaBox\\PizzaBoxCustomer\\PizzaBoxData\\PizzaBoxData.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
