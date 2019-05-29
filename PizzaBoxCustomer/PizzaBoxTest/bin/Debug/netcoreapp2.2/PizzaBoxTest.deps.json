@@ -1330,16 +1330,14 @@
       "PizzaBoxData/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4",
+          "PizzaBoxDomain": "1.0.0"
         },
         "runtime": {
           "PizzaBoxData.dll": {}
         }
       },
       "PizzaBoxDomain/1.0.0": {
-        "dependencies": {
-          "PizzaBoxData": "1.0.0"
-        },
         "runtime": {
           "PizzaBoxDomain.dll": {}
         }

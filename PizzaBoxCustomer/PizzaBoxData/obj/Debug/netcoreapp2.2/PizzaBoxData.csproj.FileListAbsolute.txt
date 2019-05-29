@@ -20,3 +20,6 @@ D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Debug\netcoreapp2.2\Pizza
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Debug\netcoreapp2.2\PizzaBoxData.AssemblyInfo.cs
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Debug\netcoreapp2.2\PizzaBoxData.dll
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Debug\netcoreapp2.2\PizzaBoxData.pdb
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\bin\Debug\netcoreapp2.2\PizzaBoxDomain.dll
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\bin\Debug\netcoreapp2.2\PizzaBoxDomain.pdb
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Debug\netcoreapp2.2\PizzaBoxData.csproj.CopyComplete

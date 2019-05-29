@@ -16,6 +16,7 @@ namespace PizzaBoxDomain
     public class DomOrder
     {
         private decimal cost;
+        public int? OrderID { get; set; }
         public string Username { get; set; }
         public int LocationId { get; set; }
         public decimal Cost { get { return cost; } }
@@ -23,7 +24,7 @@ namespace PizzaBoxDomain
         public DateTime OrderDate { get; set;  }
         public int OrderStatus { get; set; }
 
-        public List<DomPizza> Pizzas { get; }
+        public List<DomPizza> Pizzas { get; set; }
 
         public DomOrder(string username, int locationId, DateTime orderDate, int orderStatus, List<DomPizza> pizzas)
         {
@@ -69,6 +70,11 @@ namespace PizzaBoxDomain
         public bool IsAboveMaximumCost()
         {
             return Cost > 5000;
+        }
+
+        public bool IsAtMaxPizzas()
+        {
+            return Pizzas.Count >= 100;
         }
 
         public bool AddPizza(DomPizza newPizza)

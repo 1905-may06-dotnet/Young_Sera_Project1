@@ -6,13 +6,11 @@ namespace PizzaBoxDomain
 {
     public class DomPizzaTopping
     {
-        public DomPizza Pizza { get; }
 
         public int ToppingId { get; }
 
-        public DomPizzaTopping(DomPizza pizza, int toppingId)
+        public DomPizzaTopping(int toppingId)
         {
-            Pizza = pizza;
             ToppingId = toppingId;
         }
 

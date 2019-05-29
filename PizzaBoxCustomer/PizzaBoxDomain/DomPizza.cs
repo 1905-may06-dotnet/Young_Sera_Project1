@@ -22,6 +22,7 @@ namespace PizzaBoxDomain
     public class DomPizza
     {
         private decimal cost;
+        public int PizzaID { get; set; }
         public decimal Cost { get { return cost; }  }
         public int Size { get; }
         public int Crust { get; }

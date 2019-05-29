@@ -156,6 +156,29 @@ namespace PizzaBoxTest
         }
 
         [TestMethod]
+        public void MaxPizzaTest()
+        {
+            //Arrange
+            DomOrder testOrder = new DomOrder();
+            bool atLimit = false;
+            bool belowLimit = true;
+
+            for (int i = 0; i < 99; i++)
+            {
+                testOrder.AddPizza(new DomPizza(0, 0, new List<DomPizzaTopping>()));
+            }
+
+            //Act
+            belowLimit = testOrder.IsAtMaxPizzas();
+            testOrder.AddPizza(new DomPizza(0, 0, new List<DomPizzaTopping>()));
+            atLimit = testOrder.IsAtMaxPizzas();
+
+            //Assert
+            Assert.IsTrue(atLimit);
+            Assert.IsFalse(belowLimit);
+        }
+
+        [TestMethod]
         public void RemovePizzaTest()
         {
             //Arrange

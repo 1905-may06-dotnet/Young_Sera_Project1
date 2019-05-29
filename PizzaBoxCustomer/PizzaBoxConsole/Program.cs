@@ -7,12 +7,18 @@ namespace PizzaBoxConsole
 {
     class Program
     {
-        static CRUD crud;
-        static User currUser;
-        static Order currOrder;
+        static IPizzaRepository pRepo;
+        static IOrderRepository oRepo;
+        static IUserRepository uRepo;
+        static ILocationRepository lRepo;
+        static DomUser currUser;
+        static DomOrder currOrder;
         static void Main(string[] args)
         {
-            crud = new CRUD();
+            pRepo = new PizzaRepository();
+            oRepo = new OrderRepository();
+            uRepo = new UserRepository();
+            lRepo = new LocationRepository();
             MainOptions();
         }
 
@@ -81,15 +87,15 @@ namespace PizzaBoxConsole
                 string user = Console.ReadLine();
                 if (user == "return")
                     return;
-                if (crud.UserNameTaken(user))
+                if (uRepo.UserNameTaken(user))
                 {
                     Console.WriteLine("Please provide your password or type \'return\': ");
                     string pswrd = Console.ReadLine();
                     if (pswrd == "return")
                         return;
-                    if (crud.PassValidation(user, pswrd))
+                    if (uRepo.PassValidation(user, pswrd))
                     {
-                        currUser = crud.GetUser(user);
+                        currUser = uRepo.GetUser(user);
                         UpdateOrderInfo(currUser.LocationId, currUser.Username);
                         Console.WriteLine($"Welcome back, {currUser.Username}!");
                         WaitForInput();
@@ -145,7 +151,7 @@ namespace PizzaBoxConsole
                 {
                     return;
                 }
-                if (crud.UserNameTaken(uname))
+                if (uRepo.UserNameTaken(uname))
                 {
                     Console.WriteLine("Username already taken. Please try again.");
                     WaitForInput();
@@ -166,7 +172,7 @@ namespace PizzaBoxConsole
             {
                 Console.Clear();
                 Console.WriteLine("Please select a store location by entering the corresponding number or enter \'return\' to cancel.");
-                List<Location> locList = crud.GetLocationList();
+                List<DomLocation> locList = lRepo.GetLocationList();
                 foreach (var loc in locList)
                 {
                     Console.WriteLine($"({loc.Id}) {loc.Address}");
@@ -183,8 +189,8 @@ namespace PizzaBoxConsole
                     break;
                 }
             }
-            User newUser = new User() { Username = uname, Pwrd = pass, LocationId = locId };
-            crud.AddUser(newUser);
+            DomUser newUser = new DomUser(uname, locId, pass);
+            uRepo.AddUser(newUser);
             currUser = newUser;
             UpdateOrderInfo(currUser.LocationId, currUser.Username);
             Console.WriteLine($"Welcome to Pizza Box, {currUser.Username}!");
@@ -195,7 +201,7 @@ namespace PizzaBoxConsole
         {
             if (currOrder == null)
             {
-                currOrder = new Order();
+                currOrder = new DomOrder();
                 if(currUser != null) UpdateOrderInfo(currUser.LocationId, currUser.Username);
             }
             
@@ -235,17 +241,16 @@ namespace PizzaBoxConsole
 
         static void AddPizza()
         {
-            if(PizzaLogic.IsAboveMaxPizzaCount(currOrder.Pizza.Count))
+            if(currOrder.IsAtMaxPizzas())
             {
                 Console.WriteLine("You have reached the limit on pizzas at 100 pizzas. Please order and try again in 2 hours.");
                 WaitForInput();
                 return;
             }
 
-            Pizza newPizza;
+            DomPizza newPizza;
             while (true)
             {
-                newPizza = new Pizza();
                 PizzaCrust crust;
                 while (true)
                 {
@@ -275,7 +280,6 @@ namespace PizzaBoxConsole
                         WaitForInput();
                     }
                 }
-                newPizza.Crust = (int)crust;
 
                 PizzaSize size;
                 while (true)
@@ -306,17 +310,18 @@ namespace PizzaBoxConsole
                         WaitForInput();
                     }
                 }
-                newPizza.Size = (int)size;
 
-                List<PizzaTopping> toppings = new List<PizzaTopping>();
+                List<DomPizzaTopping> toppings = new List<DomPizzaTopping>();
                 while (true)
                 {
                     Console.Clear();
                     Console.WriteLine("Select a topping or type \'none\' if you want no toppings or \'return\' to cancel");
-                    List<Topping> topList = crud.GetToppingList();
+                    List<DomTopping> topList = pRepo.GetToppingList();
+                    int i = 0;
                     foreach (var top in topList)
                     {
-                        Console.WriteLine($"({top.Id}) {top.TopName}");
+                        Console.WriteLine($"({i}) {top.ToppingName}");
+                        i++;
                     }
                     string input = Console.ReadLine();
                     if (input == "return")
@@ -336,11 +341,7 @@ namespace PizzaBoxConsole
                     }
                     else
                     {
-                        PizzaTopping ptopping = new PizzaTopping()
-                        {
-                            Pizza = newPizza,
-                            ToppingId = choice
-                        };
+                        DomPizzaTopping ptopping = new DomPizzaTopping(choice);
                         toppings.Add(ptopping);
                         if (toppings.Count < 5)
                         {
@@ -360,11 +361,10 @@ namespace PizzaBoxConsole
                             break;
                     }
                 }
-                newPizza.PizzaTopping = toppings;
-                newPizza.Cost = PizzaLogic.CalcPizzaCost(newPizza);
+                newPizza = new DomPizza((int)crust, (int)size, toppings);
 
-                currOrder.Pizza.Add(newPizza);
-                if (currOrder.Pizza.Count < 100)
+                currOrder.AddPizza(newPizza);
+                if (currOrder.IsAtMaxPizzas())
                 {
                     Console.Clear();
                     Console.WriteLine("Would you like to add another pizza? (y/n)");
@@ -385,7 +385,7 @@ namespace PizzaBoxConsole
 
         static void RemovePizza()
         {
-            if (currOrder == null || currOrder.Pizza.Count == 0)
+            if (currOrder == null || currOrder.Pizzas.Count == 0)
             {
                 Console.WriteLine("No current order to remove pizzas from.");
                 WaitForInput();
@@ -395,22 +395,20 @@ namespace PizzaBoxConsole
             while (true)
             {
                 Console.Clear();
-                currOrder.Cost = PizzaLogic.CalcOrderCost(currOrder);
+                currOrder.CalculateCost();
                 Console.WriteLine("Select a pizza to remove, or type \'return\' to go back.");
                 Console.WriteLine($"Order\t\t\t\tTotal Cost: ${currOrder.Cost}");
                 int i = 0;
-                List<Pizza> list = new List<Pizza>();
-                foreach (var p in currOrder.Pizza)
+                foreach (var p in currOrder.Pizzas)
                 {
-                    list.Add(p);
                     Console.WriteLine("--------------------------------");
                     Console.WriteLine($"({i})Pizza\t\t\t\tCost: ${p.Cost}");
                     Console.WriteLine($"Crust: {(PizzaCrust)p.Crust}\t\tSize: {(PizzaSize)p.Size}");
                     Console.WriteLine("Toppings: ");
-                    foreach (var pt in p.PizzaTopping)
+                    foreach (var pt in p.PizzaToppings)
                     {
-                        Topping t = crud.GetTopping((int)pt.ToppingId);
-                        Console.WriteLine(t.TopName);
+                        DomTopping t = pRepo.GetTopping((int)pt.ToppingId);
+                        Console.WriteLine(t.ToppingName);
                     }
                     ++i;
                 }
@@ -423,14 +421,14 @@ namespace PizzaBoxConsole
                     Console.WriteLine("Please input a number.");
                     WaitForInput();
                 }
-                else if (choice >= list.Count || choice < 0)
+                else if (choice >= currOrder.Pizzas.Count || choice < 0)
                 {
                     Console.WriteLine("Please select a valid pizza number.");
                     WaitForInput();
                 }
                 else
                 {
-                    currOrder.Pizza.Remove(list[choice]);
+                    currOrder.RemovePizza(choice);
                 }
             }
 
@@ -438,24 +436,24 @@ namespace PizzaBoxConsole
 
         static void ViewOrder()
         {
-            if(currOrder == null || currOrder.Pizza.Count == 0)
+            if(currOrder == null || currOrder.Pizzas.Count == 0)
             {
                 Console.WriteLine("No current order to show.");
                 WaitForInput();
                 return;
             }
-            currOrder.Cost = PizzaLogic.CalcOrderCost(currOrder);
+            currOrder.CalculateCost();
             Console.WriteLine($"Order\t\t\t\tTotal Cost: ${currOrder.Cost}");
-            foreach(var p in currOrder.Pizza)
+            foreach(var p in currOrder.Pizzas)
             {
                 Console.WriteLine("--------------------------------");
                 Console.WriteLine($"Pizza\t\t\t\tCost: ${p.Cost}");
                 Console.WriteLine($"Crust: {(PizzaCrust)p.Crust}\t\tSize: {(PizzaSize)p.Size}");
                 Console.WriteLine("Toppings: ");
-                foreach(var pt in p.PizzaTopping)
+                foreach(var pt in p.PizzaToppings)
                 {
-                    Topping t = crud.GetTopping((int)pt.ToppingId);
-                    Console.WriteLine(t.TopName);
+                    DomTopping t = pRepo.GetTopping((int)pt.ToppingId);
+                    Console.WriteLine(t.ToppingName);
                 }
             }
             WaitForInput();
@@ -464,19 +462,19 @@ namespace PizzaBoxConsole
         static void CancelOrder()
         {
             Console.Clear();
-            if(currOrder == null || currOrder.Pizza.Count == 0)
+            if(currOrder == null || currOrder.Pizzas.Count == 0)
             {
                 Console.WriteLine("You currently don't have an order!");
                 WaitForInput();
             }
-            currOrder.Pizza.Clear();
+            currOrder.Pizzas.Clear();
             Console.WriteLine("Your pizzas have been removed from your order.");
             WaitForInput();
         }
 
         static void CheckOut()
         {
-            if(currOrder == null || currOrder.Pizza.Count == 0)
+            if(currOrder == null || currOrder.Pizzas.Count == 0)
             {
                 Console.WriteLine("Add pizzas to your order before you checkout!");
                 WaitForInput();
@@ -490,20 +488,20 @@ namespace PizzaBoxConsole
                 return;
             }
 
-            currOrder.Cost = PizzaLogic.CalcOrderCost(currOrder);
-            PizzaLogic.SetOrderTime(currOrder);
+            currOrder.CalculateCost();
+            currOrder.OrderDate = DateTime.Now;
             currOrder.OrderStatus = (int)OrderStatus.Sent;
-            Order lastOrder = crud.GetMostRecentOrder(currUser);
+            DomOrder lastOrder = oRepo.GetMostRecentOrder(currUser);
             if (lastOrder != null)
             {
-                if (PizzaLogic.WithinTimeSpan(lastOrder.OrderDate, currOrder.OrderDate, TimeSpan.FromDays(1)) && lastOrder.LocationId != currOrder.LocationId)
+                if (currOrder.Within24Hours(lastOrder.OrderDate) && lastOrder.LocationId != currOrder.LocationId)
                 {
                     Console.WriteLine("You can't order from a location within 24 hours of ordering from a different location.");
                     WaitForInput();
                     return;
                 }
 
-                if (PizzaLogic.WithinTimeSpan(lastOrder.OrderDate, currOrder.OrderDate, TimeSpan.FromHours(2)))
+                if (currOrder.Within2Hours(lastOrder.OrderDate))
                 {
                     Console.WriteLine("It's been less than 2 hours since your last order. Please wait to order again.");
                     WaitForInput();
@@ -511,14 +509,13 @@ namespace PizzaBoxConsole
                 }
             }
 
-            if(PizzaLogic.IsAboveMaximumCost(currOrder.Cost))
+            if(currOrder.IsAboveMaximumCost())
             {
                 Console.WriteLine("Your order costs too much. Please remove pizzas until it is less than $5,000.");
                 WaitForInput();
                 return;
             }
-
-            crud.AddOrder(currOrder);
+            oRepo.AddOrder(currOrder);
             currOrder = null;
             Console.WriteLine("Your order has been sent! Enjoy your pizza!");
             WaitForInput();
@@ -526,7 +523,7 @@ namespace PizzaBoxConsole
 
         static void OrderHistory()
         {
-            crud.DisposeInstance();
+            oRepo.DisposeInstance();
             Console.Clear();
             if(currUser == null)
             {
@@ -534,7 +531,7 @@ namespace PizzaBoxConsole
                 WaitForInput();
                 return;
             }
-            List<Order> userHistory = crud.GetUserOrderList(currUser);
+            List<DomOrder> userHistory = oRepo.GetUserOrderList(currUser);
             if(userHistory.Count == 0)
             {
                 Console.WriteLine("You have not made any orders yet.");
@@ -547,36 +544,37 @@ namespace PizzaBoxConsole
                 {
                     Console.WriteLine($"Order\t\t\t\tTotal Cost: ${o.Cost}");
                     Console.WriteLine($"Order Status: {(OrderStatus)o.OrderStatus}\tOrder Time: {o.OrderDate}");
-                    if(o.Pizza.Count== 0)
+                    if(o.Pizzas.Count== 0)
                     {
-                        o.Pizza = crud.GetOrderPizzas(o);
+                        o.Pizzas = pRepo.GetOrderPizzas(o);
                     }
-                    foreach (var p in o.Pizza)
+                    foreach (var p in o.Pizzas)
                     {
                         Console.WriteLine("--------------------------------");
                         Console.WriteLine($"Pizza\t\t\t\tCost: ${p.Cost}");
                         Console.WriteLine($"Crust: {(PizzaCrust)p.Crust}\t\tSize: {(PizzaSize)p.Size}");
                         Console.WriteLine("Toppings: ");
-                        if(p.PizzaTopping.Count == 0)
+                        if(p.PizzaToppings.Count == 0)
                         {
-                            p.PizzaTopping = crud.GetPizzaToppings(p);
+                            p.PizzaToppings = pRepo.GetPizzaToppings(p);
                         }
-                        foreach (var pt in p.PizzaTopping)
+                        foreach (var pt in p.PizzaToppings)
                         {
-                            Topping t = crud.GetTopping((int)pt.ToppingId);
-                            Console.WriteLine(t.TopName);
+                            DomTopping t = pRepo.GetTopping((int)pt.ToppingId);
+                            Console.WriteLine(t.ToppingName);
                         }
                     }
                     Console.WriteLine("------------------------------------------------------------------");
                 }
                 userHistory = null;
-                crud.DisposeInstance();
+                oRepo.DisposeInstance();
                 WaitForInput();
             }
         }
 
         static void UpdateLocation()
         {
+            uRepo.DisposeInstance();
             if(currUser == null)
             {
                 Console.Clear();
@@ -589,7 +587,7 @@ namespace PizzaBoxConsole
             {
                 Console.Clear();
                 Console.WriteLine("Please select a store location by entering the corresponding number or enter \'return\' to cancel.");
-                List<Location> locList = crud.GetLocationList();
+                List<DomLocation> locList = lRepo.GetLocationList();
                 foreach (var loc in locList)
                 {
                     Console.WriteLine($"({loc.Id}) {loc.Address}");
@@ -611,8 +609,9 @@ namespace PizzaBoxConsole
                 }
             }
             currUser.LocationId = locId;
-            crud.UpdateUser(currUser);
+            uRepo.UpdateUser(currUser);
             UpdateOrderInfo(currUser.LocationId, currUser.Username);
+            uRepo.DisposeInstance();
         }
 
         static void WaitForInput()
