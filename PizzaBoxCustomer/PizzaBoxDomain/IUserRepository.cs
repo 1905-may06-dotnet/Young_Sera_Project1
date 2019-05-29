@@ -13,11 +13,8 @@ namespace PizzaBoxDomain
         bool UserNameTaken(string username);
 
         void AddUser(DomUser u);
-        //works
         void UpdateUser(DomUser u);
-        //works
         void RemoveUser(DomUser u);
-        //works
         DomUser GetUser(string username);
     }
 }
