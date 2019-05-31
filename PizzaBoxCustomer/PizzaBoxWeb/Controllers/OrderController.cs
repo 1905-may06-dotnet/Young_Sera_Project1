@@ -41,7 +41,11 @@ namespace PizzaBoxWeb.Controllers
 
         public IActionResult AddToppings(PizzaModel pizza)
         {
+            if (TempData.Peek("PizzaSize") == null)
+                TempData.Remove("PizzaSize");
             TempData.Add("PizzaSize", pizza.Size);
+            if (TempData.Peek("PizzaCrust") == null)
+                TempData.Remove("PizzaCurst");
             TempData.Add("PizzaCrust", pizza.Crust);
             Dictionary<string, int> toppingDict = new Dictionary<string, int>();
             List<DomTopping> toppingList = PRepo.GetToppingList();
@@ -54,6 +58,10 @@ namespace PizzaBoxWeb.Controllers
 
         public IActionResult ShowOrderHistory()
         {
+            if(string.IsNullOrEmpty(HttpContext.Session.GetString("Username")))
+            {
+                return View("WarningMessage", "Must be logged in to view your user history.");
+            }
             DomUser user = URepo.GetUser(HttpContext.Session.GetString("Username"));
             List<DomOrder> list = ORepo.GetUserOrderList(user);
             foreach(var o in list)
