@@ -19,7 +19,7 @@ namespace PizzaBoxDomain
         public int? OrderID { get; set; }
         public string Username { get; set; }
         public int LocationId { get; set; }
-        public decimal Cost { get { return cost; } }
+        public decimal Cost { get { return cost; } set { cost = value; } }
 
         public DateTime OrderDate { get; set;  }
         public int OrderStatus { get; set; }

@@ -1,0 +1,22 @@
+﻿@model Dictionary<string, int>
+@{
+    ViewData["Title"] = "AddToppings";
+}
+
+<h1>Add Toppings</h1>
+<form asp-action="AddToOrder">
+    <table>
+        @foreach (KeyValuePair<string, int> topping in Model)
+        {
+            <tr>
+                <td>
+                    <label>@topping.Key</label>
+                </td>
+                <td>
+                    <input type="number" name="@topping.Key" value="@topping.Value" />
+                </td>
+            </tr>
+        }
+    </table>
+</form>
+

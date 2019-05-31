@@ -65,6 +65,8 @@ namespace PizzaBoxData
                 domPizzas.Add(Pizza2DomPizz(p));
             }
             DomOrder outOrder = new DomOrder(inOrder.Username, inOrder.LocationId, inOrder.OrderDate, inOrder.OrderStatus, domPizzas);
+            outOrder.Cost = inOrder.Cost;
+            outOrder.OrderID = inOrder.Id;
             return outOrder;
         }
 

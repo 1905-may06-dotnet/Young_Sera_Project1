@@ -32,11 +32,14 @@ D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\bin\Debug\netcoreapp2.2\PizzaB
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\bin\Debug\netcoreapp2.2\PizzaBoxDomain.dll
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\bin\Debug\netcoreapp2.2\PizzaBoxData.pdb
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\bin\Debug\netcoreapp2.2\PizzaBoxDomain.pdb
-D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Order\Order.g.cshtml.cs
-D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Order\_ViewStart.g.cshtml.cs
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_OrderLayout.g.cshtml.cs
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\User\SignUp.g.cshtml.cs
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\User\SignIn.g.cshtml.cs
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\WarningMessage.g.cshtml.cs
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\User\SelectLocation.g.cshtml.cs
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\User\ChangeLocation.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Order\ShowOrderHistory.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Order\_ViewStart.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Order\Order.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Order\MakePizza.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Order\AddToppings.g.cshtml.cs

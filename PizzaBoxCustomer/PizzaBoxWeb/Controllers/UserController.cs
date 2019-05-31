@@ -34,6 +34,7 @@ namespace PizzaBoxWeb.Controllers
                 DomUser loggedin = URepo.GetUser(user.Username);
                 string address = LRepo.GetLocation(loggedin.LocationId).Address;
                 HttpContext.Session.SetString("Location", address);
+                HttpContext.Session.SetInt32("LocationId", loggedin.LocationId);
                 return RedirectToAction("Index", "Home");
             }
             return View("WarningMessage", "Incorrect Username or Password.");
@@ -84,6 +85,7 @@ namespace PizzaBoxWeb.Controllers
             URepo.AddUser(user);
             HttpContext.Session.SetString("Username", user.Username);
             HttpContext.Session.SetString("Location", LRepo.GetLocation(Id).Address);
+            HttpContext.Session.SetInt32("LocationId", Id);
             return RedirectToAction("Index", "Home");
         }
 
@@ -117,6 +119,7 @@ namespace PizzaBoxWeb.Controllers
             update.LocationId = LocationId;
             URepo.UpdateUser(update);
             HttpContext.Session.SetString("Location", LRepo.GetLocation(LocationId).Address);
+            HttpContext.Session.SetInt32("LocationId", LocationId);
             return RedirectToAction("Index", "Home");
         }
     }
