@@ -24,6 +24,7 @@ namespace PizzaBoxData
         public virtual DbSet<Topping> Topping { get; set; }
         public virtual DbSet<User> User { get; set; }
 
+        /*
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -35,6 +36,7 @@ namespace PizzaBoxData
                 }
             }
         }
+        */
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

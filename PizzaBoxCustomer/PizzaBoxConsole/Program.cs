@@ -15,10 +15,10 @@ namespace PizzaBoxConsole
         static DomOrder currOrder;
         static void Main(string[] args)
         {
-            pRepo = new PizzaRepository();
-            oRepo = new OrderRepository();
-            uRepo = new UserRepository();
-            lRepo = new LocationRepository();
+            pRepo = new PizzaRepository(new PizzaBoxContext());
+            oRepo = new OrderRepository(new PizzaBoxContext());
+            uRepo = new UserRepository(new PizzaBoxContext());
+            lRepo = new LocationRepository(new PizzaBoxContext());
             MainOptions();
         }
 

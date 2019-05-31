@@ -7,6 +7,7 @@ namespace PizzaBoxDomain
     public interface IUserRepository
     {
         void DisposeInstance();
+        void Save();
 
         bool PassValidation(string uname, string pwrd);
 

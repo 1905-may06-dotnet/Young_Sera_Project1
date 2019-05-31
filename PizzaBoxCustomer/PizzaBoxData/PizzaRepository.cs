@@ -8,9 +8,18 @@ namespace PizzaBoxData
 {
     public class PizzaRepository : IPizzaRepository
     {
+        private PizzaBoxContext _db;
+        public PizzaRepository(PizzaBoxContext db)
+        {
+            _db = db;
+        }
+        ~PizzaRepository()
+        {
+            _db.Dispose();
+        }
         public List<DomTopping> GetToppingList()
         {
-            List<Topping> inToppings = DBSingle.Instance.dbInstance.Topping.ToList();
+            List<Topping> inToppings = _db.Topping.ToList();
             List <DomTopping> outToppings = new List<DomTopping>();
             foreach(var t in inToppings)
             {
@@ -21,17 +30,17 @@ namespace PizzaBoxData
 
         public DomTopping GetTopping(int id)
         {
-            return DataDomainMapper.Topping2DomTopping(DBSingle.Instance.dbInstance.Topping.Where<Topping>(t => t.Id == id).FirstOrDefault());
+            return DataDomainMapper.Topping2DomTopping(_db.Topping.Where<Topping>(t => t.Id == id).FirstOrDefault());
         }
 
         public void DisposeInstance()
         {
-            DBSingle.Instance.ResetInstance();
+            
         }
 
         public List<DomPizza> GetOrderPizzas(DomOrder o)
         {
-            List<Pizza> inPizzas = DBSingle.Instance.dbInstance.Pizza.Where<Pizza>(p => p.OrderId == o.OrderID).ToList();
+            List<Pizza> inPizzas = _db.Pizza.Where<Pizza>(p => p.OrderId == o.OrderID).ToList();
             List<DomPizza> outPizzas = new List<DomPizza>();
             foreach(var p in inPizzas)
             {
@@ -41,7 +50,7 @@ namespace PizzaBoxData
         }
         public List<DomPizzaTopping> GetPizzaToppings(DomPizza p)
         {
-            List<PizzaTopping> inPizzaToppings = DBSingle.Instance.dbInstance.PizzaTopping.Where<PizzaTopping>(pt => pt.PizzaId == p.PizzaID).ToList();
+            List<PizzaTopping> inPizzaToppings = _db.PizzaTopping.Where<PizzaTopping>(pt => pt.PizzaId == p.PizzaID).ToList();
             List<DomPizzaTopping> outPizzaToppings = new List<DomPizzaTopping>();
             foreach(var pt in inPizzaToppings)
             {

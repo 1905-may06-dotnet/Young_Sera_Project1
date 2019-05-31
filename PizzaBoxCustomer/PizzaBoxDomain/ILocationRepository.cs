@@ -8,6 +8,8 @@ namespace PizzaBoxDomain
     {
         void DisposeInstance();
         List<DomLocation> GetLocationList();
+
+        DomLocation GetLocation(int id);
         
         
     }
