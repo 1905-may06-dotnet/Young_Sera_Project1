@@ -58,6 +58,12 @@ namespace PizzaBoxData
             }
             return outPizzaToppings;
         }
+
+        public int GetToppingID (string topname)
+        {
+            int id = _db.Topping.Where<Topping>(pt => pt.TopName == topname).First().Id;
+            return id;
+        }
         
     }
 }

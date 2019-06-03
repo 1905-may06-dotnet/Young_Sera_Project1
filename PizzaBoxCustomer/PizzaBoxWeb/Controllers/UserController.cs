@@ -28,7 +28,8 @@ namespace PizzaBoxWeb.Controllers
 
         public IActionResult VerifyLogin(UserModel user)
         {
-            if(URepo.PassValidation(user.Username,user.Password))
+
+            if(URepo.UserNameTaken(user.Username) || URepo.PassValidation(user.Username,user.Password))
             {
                 HttpContext.Session.SetString("Username", user.Username);
                 DomUser loggedin = URepo.GetUser(user.Username);
@@ -60,7 +61,11 @@ namespace PizzaBoxWeb.Controllers
         {
             if(!URepo.UserNameTaken(user.Username))
             {
+                if (TempData.Peek("newUsername") == null)
+                    TempData.Remove("newUsername");
                 TempData.Add("newUsername", user.Username);
+                if (TempData.Peek("newPassword") == null)
+                    TempData.Remove("newPassword");
                 TempData.Add("newPassword", user.Password);
                 List<DomLocation> list = LRepo.GetLocationList();
                 List<LocationModel> mlist = new List<LocationModel>();

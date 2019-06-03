@@ -1,7 +1,78 @@
-﻿@{
+﻿@model OrderModel
+@using PizzaBoxDomain
+@{
     ViewData["Title"] = "Home Page";
 }
-
+@{ var num = 0;}
 <div class="text-center">
-    <h1 class="display-4">Welcome to PIzza Box</h1>
+    <h1 class="display-4">Welcome to Pizza Box</h1>
 </div>
+
+@if (Model != null)
+{
+    <div>
+        <hr />
+        <h2>Your order is @Model.OrderStatus.</h2>
+        <h3>The order location you ordered from is @Model.locationAddress.</h3>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.cost)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.cost)
+            </dd>
+        </dl>
+        @foreach (var pizza in Model.Pizzas)
+        {
+            { num += 1; }
+            <h1>Pizza #@num</h1>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    Cost
+                </dt>
+                <dd class="col-sm-10">
+                    @pizza.Cost
+                </dd>
+                <dt class="col-sm-2">
+                    Crust
+                </dt>
+                <dd class="col-sm-10">
+                    @Enum.GetName(typeof(PizzaCrust), pizza.Crust)
+                </dd>
+                <dt class="col-sm-2">
+                    Size
+                </dt>
+                <dd class="col-sm-10">
+                    @Enum.GetName(typeof(PizzaSize), pizza.Size)
+                </dd>
+            </dl>
+            if (pizza.toppings.Count > 0)
+            {
+                @if (pizza.toppings.Count > 1)
+                {
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            Toppings
+                        </dt>
+                    </dl>
+                }
+                else
+                {
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            Topping
+                        </dt>
+                    </dl>
+                }
+        @foreach (var topping in pizza.toppings)
+        {
+                    <dl>
+                        <dd class="col-sm-10">
+                            @topping
+                        </dd>
+                    </dl>
+        }
+            }
+        }
+    </div>
+}

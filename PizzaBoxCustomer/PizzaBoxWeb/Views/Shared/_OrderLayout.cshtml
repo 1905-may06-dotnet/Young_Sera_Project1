@@ -39,6 +39,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="ViewOrder">View Order</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="ShowOrderHistory">Show Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="CheckOut">Check Out</a>
                         </li>
                     </ul>
                 </div>
@@ -48,11 +52,11 @@
     <div class="container">
         @if (!string.IsNullOrEmpty(Context.Session.GetString("Username")))
         {
-            <div>Logged in as: @Context.Session.GetString("Username")</div>
+            <div style="text-align:right">Logged in as: @Context.Session.GetString("Username")</div>
         }
         @if (!string.IsNullOrEmpty(Context.Session.GetString("Location")))
         {
-            <div>Purchase Location: @Context.Session.GetString("Location")</div>
+            <div style="text-align:right">Purchase Location: @Context.Session.GetString("Location")</div>
         }
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">

@@ -11,6 +11,7 @@ namespace PizzaBoxDomain
 
         DomOrder GetMostRecentOrder(DomUser u);
 
+        DomOrder GetActiveOrder(string Username);
         void AddOrder(DomOrder o);
 
         void RemoveOrder(DomOrder o);

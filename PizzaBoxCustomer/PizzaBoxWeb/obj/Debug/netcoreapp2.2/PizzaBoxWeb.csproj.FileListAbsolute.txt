@@ -43,3 +43,11 @@ D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Order\Order.g.cshtml.cs
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Order\MakePizza.g.cshtml.cs
 D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Order\AddToppings.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Location\Location.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LocationLayout.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Location\LocationOptions.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Location\_ViewStart.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Location\Inventory.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Location\Users.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Location\Sales.g.cshtml.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxWeb\obj\Debug\netcoreapp2.2\Razor\Views\Location\ViewOrders.g.cshtml.cs

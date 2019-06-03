@@ -78,6 +78,7 @@ namespace PizzaBoxData
                 domPTs.Add(PizzaTopping2DomPizzaTopping(pt));
             }
             DomPizza outPizza = new DomPizza(inPizza.Crust, inPizza.Size, domPTs);
+            outPizza.PizzaID = inPizza.Id;
             return outPizza;
         }
 
@@ -122,6 +123,30 @@ namespace PizzaBoxData
                 Address = inLocation.Address
             };
             return outLocation;
+        }
+
+        public static DomInventory Inventory2DomInventory(Inventory inInventory)
+        {
+            DomInventory outInventory = new DomInventory()
+            {
+                Id = inInventory.Id,
+                Quantity = inInventory.Quantity,
+                LocationId = inInventory.LocationId,
+                ToppingId = inInventory.ToppingId
+            };
+            return outInventory;
+        }
+
+        public static Inventory DomInventory2Inventory(DomInventory inInventory)
+        {
+            Inventory outInventory = new Inventory()
+            {
+                Id = inInventory.Id,
+                Quantity = inInventory.Quantity,
+                LocationId = inInventory.LocationId,
+                ToppingId = inInventory.ToppingId
+            };
+            return outInventory;
         }
     }
 }

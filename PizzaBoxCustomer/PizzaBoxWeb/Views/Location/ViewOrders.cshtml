@@ -1,0 +1,94 @@
+﻿@model IEnumerable<PizzaBoxWeb.Models.OrderModel>
+@{
+    ViewData["Title"] = "ViewOrders";
+}
+
+<h1>View Orders</h1>
+<table>
+    @foreach (var item in Model)
+    {
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.cost)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderStatus)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderStatus)
+            </td>
+        </tr>
+        if (item.Pizzas.Count != 0)
+        {
+            <tr>
+                <th>
+                    Pizzas
+                </th>
+            </tr>
+
+            @foreach (var p in item.Pizzas)
+            {
+
+                <thead>
+                    <tr>
+                        <th>
+                            Cost
+                        </th>
+                        <th>
+                            Size
+                        </th>
+                        <th>
+                            Crust
+                        </th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                        @p.Cost
+                    </td>
+                    <td>
+                        @Enum.GetName(typeof(PizzaBoxDomain.PizzaSize), p.Size)
+                    </td>
+                    <td>
+                        @Enum.GetName(typeof(PizzaBoxDomain.PizzaCrust), p.Crust)
+                    </td>
+                </tr>
+                <thead>
+                    <tr>
+                        <th>
+                            Toppings
+                        </th>
+                    </tr>
+                </thead>
+                foreach (var t in p.toppings)
+                {
+                    <tr>
+                        <td>
+                            @t
+                        </td>
+                    </tr>
+                }
+            }
+        }
+    }
+</table>

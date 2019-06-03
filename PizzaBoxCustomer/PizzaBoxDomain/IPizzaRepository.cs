@@ -13,5 +13,7 @@ namespace PizzaBoxDomain
         List<DomPizza> GetOrderPizzas(DomOrder o);
         
         List<DomPizzaTopping> GetPizzaToppings(DomPizza p);
+
+        int GetToppingID(string topname);
     }
 }

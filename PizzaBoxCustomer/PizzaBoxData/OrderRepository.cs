@@ -35,7 +35,18 @@ namespace PizzaBoxData
         }
         public DomOrder GetMostRecentOrder(DomUser u)
         {
-            return DataDomainMapper.Order2DomOrder(_db.Order.Where<Order>(o => o.Username == u.Username).OrderByDescending(o => o.OrderDate).FirstOrDefault());
+            Order order = _db.Order.Where<Order>(o => o.Username == u.Username).OrderByDescending(o => o.OrderDate).FirstOrDefault();
+            if (order == null)
+                return null;
+            return DataDomainMapper.Order2DomOrder(order);
+        }
+
+        public DomOrder GetActiveOrder(string Username)
+        {
+            IQueryable<Order> oquery = _db.Order.Where<Order>(o => o.Username == Username && ((int)o.OrderStatus < 4));
+            if (oquery.FirstOrDefault() == null)
+                return null;
+            return DataDomainMapper.Order2DomOrder(oquery.FirstOrDefault());
         }
 
         public void AddOrder(DomOrder o)

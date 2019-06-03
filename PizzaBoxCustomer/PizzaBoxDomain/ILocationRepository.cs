@@ -10,7 +10,16 @@ namespace PizzaBoxDomain
         List<DomLocation> GetLocationList();
 
         DomLocation GetLocation(int id);
-        
-        
+
+        List<DomUser> Getusers(int LocationId);
+
+        List<DomInventory> GetInventory(int LocationId);
+
+        List<DomOrder> GetActiveOrders(int LocationId);
+
+        List<DomOrder> GetAllOrders(int LocationId);
+
+
+
     }
 }

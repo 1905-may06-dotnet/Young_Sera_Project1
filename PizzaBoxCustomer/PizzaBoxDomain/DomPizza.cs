@@ -44,7 +44,7 @@ namespace PizzaBoxDomain
             CalculateCost();
         }
 
-        private void CalculateCost()
+        public void CalculateCost()
         {
             PizzaSize pizzaSize = (PizzaSize)Size;
             PizzaCrust pizzaCrust = (PizzaCrust)Crust;
