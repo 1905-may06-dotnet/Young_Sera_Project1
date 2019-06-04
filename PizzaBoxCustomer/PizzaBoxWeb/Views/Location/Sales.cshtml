@@ -27,7 +27,7 @@
             <tr>
                 @{ total = total + item.cost;}
                 <td>
-                    @Html.DisplayFor(modelItem => item.cost)
+                    $@Html.DisplayFor(modelItem => item.cost)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.username)
@@ -39,4 +39,4 @@
 }
         </tbody>
     </table>
-    <h3>Total Sales: @total</h3>
+    <h3>Total Sales: $@total</h3>

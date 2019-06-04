@@ -16,7 +16,7 @@
             @Html.DisplayNameFor(model => model.cost)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.cost)
+            $@Html.DisplayFor(model => model.cost)
         </dd>
     </dl>
     @foreach (var pizza in Model.Pizzas)
@@ -28,7 +28,7 @@
                 Cost
             </dt>
             <dd class="col-sm-10">
-                @pizza.Cost
+                $@pizza.Cost
             </dd>
             <dt class="col-sm-2">
                 Crust

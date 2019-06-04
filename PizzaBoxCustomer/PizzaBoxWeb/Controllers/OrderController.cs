@@ -158,12 +158,12 @@ namespace PizzaBoxWeb.Controllers
         public IActionResult Checkout()
         {
             string username = HttpContext.Session.GetString("Username");
-            int locId = (int)HttpContext.Session.GetInt32("LocationId");
+            
             if(string.IsNullOrEmpty(username))
             {
                 return View("WarningMessage", "You must be logged in to place an order.");
             }
-            
+            int locId = (int)HttpContext.Session.GetInt32("LocationId");
             OrderModel order = TempData.get("Order");
 
             if(order.Pizzas.Count == 0)
@@ -188,10 +188,12 @@ namespace PizzaBoxWeb.Controllers
             DateTime lastDate = (lastOrder != null) ? lastOrder.OrderDate : DateTime.MinValue;
             if (DOrder.Within24Hours(lastDate) && DOrder.LocationId != lastOrder.LocationId)
             {
+                TempData.Keep();
                 return View("WarningMessage", "You ordered at a different location within the past 24 hours. Please order there again or wait to order from us.");
             }
             if (DOrder.Within2Hours(lastDate))
             {
+                TempData.Keep();
                 return View("WarningMessage", "You ordered within the last two hours.");
             }
             ORepo.AddOrder(DOrder);
