@@ -20,12 +20,12 @@ steps:
   displayName: 'dotnet build $(buildConfiguration)'
   workingDirectory: $(pathSolution)
 - task: VSTest@2
-    inputs:
-      testSelector: 'testAssemblies'
-      testAssemblyVer2: '**\*test*.dll
-        !**\*TestAdapter.dll
-        !**\obj\**'
-      searchFolder: '$(System.DefaultWorkingDirectory)'
+  inputs:
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: '**\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**'
+    searchFolder: '$(System.DefaultWorkingDirectory)'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
