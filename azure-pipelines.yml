@@ -20,7 +20,7 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   workingDirectory: $(pathSolution)
-- script: dotnet test --configuration $(buildConfiguration) --nobuild
+- script: dotnet test --configuration $(buildConfiguration) --no-build
   workingDirectory: $(pathSolution)
   displayName: 'dotnet PizzaBoxTest'
 - task: DotNetCoreCLI@2
