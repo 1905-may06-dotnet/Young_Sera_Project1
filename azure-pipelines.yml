@@ -14,16 +14,15 @@ variables:
   buildConfiguration: 'Release'
   projectPath: 'PizzaBoxCustomer/PizzaBoxWeb'
   pathSolution: 'PizzaBoxCustomer'
+  pathToTest: 'PizzaBoxCustomer/PizzaBoxTest'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
   workingDirectory: $(pathSolution)
-- task: VSTest@2
-  inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: '**\*PizzaBoxTest.dll'
-    searchFolder: '$(System.DefaultWorkingDirectory)/PizzaBoxCustomer'
+- script: dotnet test --configuration $(buildConfiguration) --nobuild
+  workingDirectory: $(pathSolution)
+  displayName: 'dotnet PizzaBoxTest'
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
