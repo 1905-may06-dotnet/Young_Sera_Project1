@@ -1,0 +1,9 @@
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxDomain\bin\Release\netcoreapp2.2\PizzaBoxDomain.deps.json
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxDomain\bin\Release\netcoreapp2.2\PizzaBoxDomain.dll
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxDomain\bin\Release\netcoreapp2.2\PizzaBoxDomain.pdb
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxDomain\obj\Release\netcoreapp2.2\PizzaBoxDomain.csprojAssemblyReference.cache
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxDomain\obj\Release\netcoreapp2.2\PizzaBoxDomain.csproj.CoreCompileInputs.cache
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxDomain\obj\Release\netcoreapp2.2\PizzaBoxDomain.AssemblyInfoInputs.cache
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxDomain\obj\Release\netcoreapp2.2\PizzaBoxDomain.AssemblyInfo.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxDomain\obj\Release\netcoreapp2.2\PizzaBoxDomain.dll
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxDomain\obj\Release\netcoreapp2.2\PizzaBoxDomain.pdb

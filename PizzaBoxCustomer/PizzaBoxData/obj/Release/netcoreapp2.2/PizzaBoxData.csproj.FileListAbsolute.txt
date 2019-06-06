@@ -1,0 +1,14 @@
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\bin\Release\netcoreapp2.2\PizzaBoxData.deps.json
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\bin\Release\netcoreapp2.2\PizzaBoxData.runtimeconfig.json
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\bin\Release\netcoreapp2.2\PizzaBoxData.runtimeconfig.dev.json
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\bin\Release\netcoreapp2.2\PizzaBoxData.dll
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\bin\Release\netcoreapp2.2\PizzaBoxData.pdb
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\bin\Release\netcoreapp2.2\PizzaBoxDomain.dll
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\bin\Release\netcoreapp2.2\PizzaBoxDomain.pdb
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Release\netcoreapp2.2\PizzaBoxData.csprojAssemblyReference.cache
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Release\netcoreapp2.2\PizzaBoxData.csproj.CoreCompileInputs.cache
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Release\netcoreapp2.2\PizzaBoxData.AssemblyInfoInputs.cache
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Release\netcoreapp2.2\PizzaBoxData.AssemblyInfo.cs
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Release\netcoreapp2.2\PizzaBoxData.csproj.CopyComplete
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Release\netcoreapp2.2\PizzaBoxData.dll
+D:\Revature\PizzaBox\PizzaBoxCustomer\PizzaBoxData\obj\Release\netcoreapp2.2\PizzaBoxData.pdb
