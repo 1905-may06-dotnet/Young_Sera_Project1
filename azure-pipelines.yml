@@ -12,12 +12,14 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  projectPath: 'PizzaBoxCustomer/PizzaBoxWeb/PizzaBoxWeb.csproj'
+  projectPath: 'PizzaBoxCustomer/PizzaBoxWeb/PizzaBoxWeb'
+  pathSolution: 'PizzaBoxCustomer'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+  workingDirectory: $(pathSolution)
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: (projectPath)
+    projects: '$(projectPath)/*.csproj'
